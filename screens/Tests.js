@@ -1,15 +1,26 @@
 import React from 'react';
-import {Text, View, Button } from 'react-native';
+import {Text, View,Image, TouchableOpacity } from 'react-native';
 
 import { List, TextInput, DataTable  } from 'react-native-paper';
 import {GlobalStyle} from '../styles/GlobalStyle'
-import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
 
 export default function Tests( ) {
   return (
     <View style={GlobalStyle.container}>
+
+    <TouchableOpacity
+          style={GlobalStyle.TouchableOpacityStyle}
+          onPress={()=> alert("plus")}>
+          
+          <Image
+           source={require('../assets/plus_icon.png')}
+            style={GlobalStyle.FloatingButtonStyle}
+          />
+    </TouchableOpacity>
+
+
     <TextInput
         label='Test'
         mode='flat'

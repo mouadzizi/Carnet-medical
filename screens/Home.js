@@ -6,35 +6,36 @@ import {GlobalStyle} from '../styles/GlobalStyle';
 
 export default function Home({navigation}) {
   return (
+
     <ScrollView>
     <View style={GlobalStyle.container}>
 
-    <Card>
 
+    <Card>
       <Card.Content>
-        <Title>Card title</Title>
-        <Paragraph>Card content</Paragraph>
+        <Title>Tests</Title>
+        <Paragraph>Analyse - Radiologie - Vaccins - medicaments</Paragraph>
       </Card.Content>
       
-      <Card.Cover source={{ uri: 'https://picsum.photos/id/111/700' }} />
+      <Card.Cover source={require('../assets/tests.jpg')} />
       <Card.Actions>
-        <Button>Cancel</Button>
-        <Button>Ok</Button>
+        <Button>See More</Button>
       </Card.Actions>
 
     </Card>
       
-      <Card style={{marginTop: 30}}>
+
+
+    <Card style={{marginTop: 30}}>
 
       <Card.Content>
-        <Title>Card title</Title>
-        <Paragraph>Card content</Paragraph>
+        <Title>Events</Title>
+        <Paragraph>Rendez vous - Chirurgie </Paragraph>
       </Card.Content>
       
-      <Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
+      <Card.Cover source={require('../assets/events.jpg')} />
       <Card.Actions>
-        <Button>Cancel</Button>
-        <Button>Ok</Button>
+        <Button>See More</Button>
       </Card.Actions>
 
     </Card>
@@ -42,18 +43,19 @@ export default function Home({navigation}) {
     <Card style={{marginTop: 30, marginBottom: 20}}>
 
       <Card.Content>
-        <Title>Card title</Title>
-        <Paragraph>Card content</Paragraph>
+        <Title>Mesurments</Title>
+        <Paragraph>blood - pressur </Paragraph>
       </Card.Content>
-      
-      <Card.Cover source={{ uri: 'https://picsum.photos/700' }} />
+
+      <Card.Cover source={require('../assets/mesurements.jpg')} />
       <Card.Actions>
-        <Button>Cancel</Button>
-        <Button>Ok</Button>
+        <Button>See More</Button>
       </Card.Actions>
 
     </Card>
     </View>
+    
     </ScrollView>
+
   );
 }
