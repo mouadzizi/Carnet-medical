@@ -1,33 +1,31 @@
 import React from 'react';
-import {Text, View, Button } from 'react-native';
+import {View, Image, TouchableOpacity, ScrollView } from 'react-native';
 
-import { List, TextInput } from 'react-native-paper';
-import {GlobalStyle} from '../styles/GlobalStyle'
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { List, Dialog, Portal, Text } from 'react-native-paper';
+import {GlobalStyle} from '../styles/GlobalStyle';
 
 
 
 export default function Events () {
+
   return (
     <View style={GlobalStyle.container}>
 
-      <TextInput
-        label='Event'
-        mode='flat'
-        placeholder='add an event'
-        underlineColor='#A8D28F'
-        />
+      <TouchableOpacity
+          style={GlobalStyle.TouchableOpacityStyle}>
+          
+          <Image
+           source={require('../assets/plus_icon.png')}
+            style={GlobalStyle.FloatingButtonStyle}
+          />
+      </TouchableOpacity>
 
-    <TouchableOpacity
-        onPress={()=> alert('add event')}>
-        <Text
-        style={GlobalStyle.buttonSignIn}>Add an event</Text>
-    </TouchableOpacity>
 
     <List.Item
       title="First Test"
       description="Item description"
-      left={props => <List.Icon {...props} icon="folder" />}
+      left={props => <List.Icon {...props} icon="folder"
+      style={{marginTop: 20}}/>}
     />
 
         

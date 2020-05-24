@@ -21,19 +21,6 @@ export default function Tests( ) {
     </TouchableOpacity>
 
 
-    <TextInput
-        label='Test'
-        mode='flat'
-        placeholder='add a test'
-        underlineColor='#A8D28F'
-        />
-
-    <TouchableOpacity
-        onPress={()=> alert('add a test')}>
-        <Text
-        style={GlobalStyle.buttonSignIn}>Add Test</Text>
-    </TouchableOpacity>
-
     <DataTable style={{marginTop: 30}}>
         <DataTable.Header>
           <DataTable.Title>Name test</DataTable.Title>
