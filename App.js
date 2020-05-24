@@ -13,6 +13,7 @@ import Events from './screens/Events';
 import Profil from './screens/Profil';
 import About from './screens/About';
 import Settings from './screens/Settings';
+import Mesurements from './screens/Mesurements';
 import {DrawerContent} from './styles/drawerContent';
 
 
@@ -30,10 +31,12 @@ const StackApp = createStackNavigator();
 const StackHome = createStackNavigator();
 const StackTests = createStackNavigator();
 const StackEvents = createStackNavigator();
+const StackMesurements = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 
  {/*Drawer Navigator*/}
+
 function DrawerNavigator(){
   return (
       <Drawer.Navigator initialRouteName="StackHomeNavigation" 
@@ -64,6 +67,9 @@ function TabNavigator(){
             } if (route.name === 'Tests') {
               iconName = focused ? 'ios-list-box' : 'ios-list';
             }
+            if (route.name === 'Mesurments') {
+              iconName = focused ? 'ios-heart' : 'ios-heart';
+            }
             else if (route.name === 'Events') {
               iconName = focused ? 'ios-timer' : 'ios-timer';
             }
@@ -78,6 +84,7 @@ function TabNavigator(){
     <Tab.Screen name="Home" component={DrawerNavigator} backBehavior='none' />
     <Tab.Screen name="Tests" component={StackTestsNavigation} />
     <Tab.Screen name="Events" component={StackEventsNavigation} />
+    <Tab.Screen name="Mesurments" component={StackMesurementsNavigation} />
   </Tab.Navigator>
 
 )
@@ -112,6 +119,15 @@ function TabNavigator(){
 )
 }
 
+{/*Tests Stack navigator to manage the move in home page*/}
+function StackMesurementsNavigation(){
+  return (
+    <StackTests.Navigator initialRouteName="Mesurements">
+      <StackTests.Screen name="Mesurements" component={Mesurements} />
+  </StackTests.Navigator>
+)
+}
+
  {/*Events Stack navigator to manage the move in home page*/}
  function StackEventsNavigation(){
   return (
@@ -134,8 +150,7 @@ export default function App() {
           <StackApp.Screen name="SignIn" component={SignIn} options={{ headerShown: false }} />
           <StackApp.Screen name="SignUp" component={SignUp} options={{headerTitle: ''}}/>
           <StackApp.Screen name="TabNavigator" component={TabNavigator}
-          options={{ headerShown: false }}
-          />
+          options={{ headerShown: false }}/>
 
         </StackApp.Navigator>
         

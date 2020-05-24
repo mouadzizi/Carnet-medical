@@ -97,6 +97,27 @@ export const GlobalStyle = StyleSheet.create({
       width: 50,
       height: 50,
     },
-    
+    boxAbout: {
+      marginLeft: 20,
+      marginRight: 20,
+      marginTop: 30,
+      backgroundColor: 'white'
+    },
+    titleAbout:{
+      fontSize:16,
+      marginTop:20,
+      marginLeft: 20,
+      fontWeight: 'bold',
+    },
+    captionAbout:{
+      fontSize:14,
+      lineHeight: 14,
+      marginTop: 25,
+      marginLeft: 15,
+   },
+   avatarAbout: {
+    marginTop: 10,
+    marginLeft: 15,
+   },
   });
 
