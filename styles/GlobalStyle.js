@@ -105,19 +105,31 @@ export const GlobalStyle = StyleSheet.create({
     },
     titleAbout:{
       fontSize:16,
-      marginTop:20,
+      marginTop:50,
       marginLeft: 20,
       fontWeight: 'bold',
     },
     captionAbout:{
       fontSize:14,
       lineHeight: 14,
-      marginTop: 25,
+      marginTop: 55,
       marginLeft: 15,
    },
    avatarAbout: {
     marginTop: 10,
-    marginLeft: 15,
+    marginLeft: 10,
+    backgroundColor: '#A8D28F',
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+    alignContent: 'center',
+    alignItems: 'center',
    },
+   preference: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+},
   });
 

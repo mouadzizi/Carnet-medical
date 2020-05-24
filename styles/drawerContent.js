@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {Text, View, StyleSheet} from 'react-native';
 
 import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
@@ -10,17 +10,23 @@ import {
     Title,
     Caption,
     Drawer,
+    Switch,
+    TouchableRipple,
+    Button,
 } from "react-native-paper";
 
 
 export function DrawerContent(props){
 
-    
+    const [isDarkTheme, setIsDarkTheme] = React.useState(false);
+    const toggleTheme = () => {
+        setIsDarkTheme(!isDarkTheme);
+    }
     return(
         
         <View style={{flex:1}}>
         <DrawerContentScrollView {...props}>
-
+        {/* this section for header Drawer */}
         <View style={styles.DrawerContent}>
             <View style={styles.userInfoSection}>
 
@@ -35,6 +41,7 @@ export function DrawerContent(props){
                 </View>
             </View>
 
+            {/* this section for pages */}
             <Drawer.Section style={styles.drawerSection}>
             <DrawerItem
             icon={({color, size}) =>(
@@ -82,11 +89,41 @@ export function DrawerContent(props){
             label="About"
             onPress={()=>{props.navigation.navigate('About')}}
             />
-                
+
+            {/* this section for dark theme and pdf */}
             </Drawer.Section>
+            <Drawer.Section title='Preference'>
+                <TouchableRipple onPress={()=> {toggleTheme()}}>
+                <View style={styles.preference}>
+                    <Text>Dark Theme</Text>
+                        <View pointerEvents="none">
+                            <Switch 
+                            value={isDarkTheme}
+                            color='#A8D28F'
+                            />
+                        </View>
+                </View>
+                </TouchableRipple>
+
+                <TouchableRipple onPress={()=> alert('pdf generator')}>
+                <View style={styles.preference}>
+                        <View pointerEvents="none">
+                        <Button 
+                        icon="book-open-outline" 
+                        mode="contained" 
+                        onPress={() => console.log('Pressed')}
+                        color='#A8D28F'>
+                        PDF</Button>
+                        </View>
+                </View>
+                </TouchableRipple>
+
+            </Drawer.Section>
+
         </View>
 
         </DrawerContentScrollView>
+
 
         <Drawer.Section style={styles.bottomDrawerSection}>
 
