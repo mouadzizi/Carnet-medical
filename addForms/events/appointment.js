@@ -42,7 +42,7 @@ export default function appointment() {
           mode="contained" 
           onPress={showDatepicker}
           color='#A8D28F'>
-          sa</Button>
+          pick date</Button>
       </View>
       <View>
         <Button onPress={showTimepicker} title="Show time picker!" />
