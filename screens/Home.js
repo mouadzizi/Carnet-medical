@@ -14,7 +14,7 @@ export default function Home({navigation}) {
 
       <Card.Content>
         <Title>Mesurments</Title>
-        <Paragraph>blood - pressur </Paragraph>
+        <Paragraph>Suger level - Blood pressur - Pulse </Paragraph>
       </Card.Content>
 
       <Card.Cover source={require('../assets/mesurements.jpg')} />

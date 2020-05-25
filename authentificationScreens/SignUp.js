@@ -23,8 +23,7 @@ export default function SignUp({navigation}) {
         label='Email'
         mode='outlined'
         placeholder='e.g "yourMail@mail.com"'
-        selectionColor='#A8D28F'
-        underlineColor='#A8D28F'
+        theme={{colors: {primary: '#A8D28F', background: '#fff' }}}
         style={{marginTop: 50}}
         />
 
@@ -32,6 +31,7 @@ export default function SignUp({navigation}) {
         label='Password'
         mode='outlined'
         placeholder='Password must contain at least 8 lettres'
+        theme={{colors: {primary: '#A8D28F', background: '#fff' }}}
         secureTextEntry={true}
         style={{marginTop: 25}}
         />
@@ -39,6 +39,7 @@ export default function SignUp({navigation}) {
         label='Confirm Password'
         mode='outlined'
         placeholder='Confirme your Password'
+        theme={{colors: {primary: '#A8D28F', background: '#fff' }}}
         secureTextEntry={true}
         style={{marginTop: 25}}
         />

@@ -26,13 +26,15 @@ export default function SignIn({navigation}) {
         <TextInput
         label='Email'
         mode='outlined'
-        placeholder='e.g "yourMail@mail.com"'
+        placeholder='e.g: yourMail@mail.com'
+        theme={{colors: {primary: '#A8D28F', background: '#fff' }}}
         style={{marginTop: 50}}
         />
         <TextInput
         label='Password'
         mode='outlined'
         placeholder='Enter your Password'
+        theme={{colors: {primary: '#A8D28F', background: '#fff' }}}
         secureTextEntry={true}
         style={{marginTop: 25}}
         />

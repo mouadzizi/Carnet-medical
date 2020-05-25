@@ -21,8 +21,12 @@ import MesurementsData from './seeMoreHome/mesurmentsData';
 import Analyses from './addForms/tests/analyses';
 import Radiology from './addForms/tests/radiology';
 import Vaccins from './addForms/tests/vaccins';
+import Appointment from './addForms/events/appointment';
+import Surgery from './addForms/events/surgery';
 
-
+import BloodPressur from './addForms/mesurments/bloodPressure';
+import Pulse from './addForms/mesurments/pulse';
+import SugerLevel from './addForms/mesurments/sugerLevel';
 
 
  {/*Navigators Stack - Drawer - Tab - Container*/}
@@ -136,6 +140,10 @@ function StackMesurementsNavigation(){
   return (
     <StackMesurements.Navigator initialRouteName="Mesurements">
       <StackMesurements.Screen name="Mesurements" component={Mesurements} />
+      
+      <StackMesurements.Screen name="BloodPressur" component={BloodPressur} />
+      <StackMesurements.Screen name="Pulse" component={Pulse} />
+      <StackMesurements.Screen name="SugerLevel" component={SugerLevel} />
   </StackMesurements.Navigator>
 )
 }
@@ -145,6 +153,8 @@ function StackMesurementsNavigation(){
   return (
     <StackEvents.Navigator initialRouteName="Events">
       <StackEvents.Screen name="Events" component={Events} />
+      <StackEvents.Screen name="Appointment" component={Appointment} />
+      <StackEvents.Screen name="Surgery" component={Surgery} />
   </StackEvents.Navigator>
 )
 }
