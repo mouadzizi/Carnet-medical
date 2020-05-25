@@ -130,6 +130,26 @@ export const GlobalStyle = StyleSheet.create({
     justifyContent: 'space-between',
     paddingVertical: 12,
     paddingHorizontal: 16,
-},
-  });
+  },
+  formContainer:{
+    flex: 1,
+  },
+  formDateContainer:{
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginLeft: 15,
+    marginRight: 15,
+    backgroundColor: '#fff'
+  },
+  formTitle:{
+    fontWeight: 'bold',
+    fontSize: 20,
+    margin: 25,
+  },
+  formSubTitle:{
+    fontSize: 20,
+    margin: 25,
+  },
+
+});
 
