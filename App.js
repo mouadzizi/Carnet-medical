@@ -18,6 +18,9 @@ import Mesurements from './screens/Mesurements';
 import TestsData from './seeMoreHome/testesData';
 import EventsData from './seeMoreHome/eventsData';
 import MesurementsData from './seeMoreHome/mesurmentsData';
+import Analyses from './addForms/tests/analyses';
+import Radiology from './addForms/tests/radiology';
+import Vaccins from './addForms/tests/vaccins';
 
 
 
@@ -121,6 +124,9 @@ function TabNavigator(){
   return (
     <StackTests.Navigator initialRouteName="Tests">
       <StackTests.Screen name="Tests" component={Tests} />
+      <StackTests.Screen name="Analyses" component={Analyses} />
+      <StackTests.Screen name="Radiology" component={Radiology} />
+      <StackTests.Screen name="Vaccins" component={Vaccins} />
   </StackTests.Navigator>
 )
 }

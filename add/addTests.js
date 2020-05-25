@@ -11,10 +11,9 @@ import vacc from '../assets/vaccine.png';
 
 
 const pageList=[
-    {name:'Consultation',title:'Consultations',icon:cons,key:'1'},
-    {name:'Analysis',title:'Analyses',icon:analy,key:'2'},
-    {name:'Radio',title:'Radiologie',icon:radio,key:'3'},
-    {name:'Vaccins',title:'Vaccins',icon:vacc,key:'4'},
+    {name:'Analyses',title:'Analyses',icon:analy,key:'1'},
+    {name:'Radiology',title:'Radiologie',icon:radio,key:'2'},
+    {name:'Vaccins',title:'Vaccins',icon:vacc,key:'3'},
 ]
 export default class test extends Component {
     render() { 
@@ -24,11 +23,10 @@ export default class test extends Component {
                  <View style={styles.gridContainer}>
 
                 <FlatList 
-                    numColumns={2}
+                    numColumns={1}
                     data={pageList}
                     renderItem={({item})=>(
-                            <TouchableOpacity style={styles.item} 
-                             onPress={()=>alert(item.name)}>
+                            <TouchableOpacity style={styles.item}>
                                 <Image source={item.icon} style={styles.image} />
                                 <Text style={styles.txtItem}> {item.title} </Text>
                             </TouchableOpacity>
