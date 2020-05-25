@@ -2,6 +2,7 @@ import React from 'react';
 import {Button} from 'react-native-elements';
 import Entypo from 'react-native-vector-icons/Entypo'
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import {DrawerContent} from './styles/drawerContent';
 
  {/*Screens here*/}
 import Splash from './screens/Splash';
@@ -14,7 +15,11 @@ import Profil from './screens/Profil';
 import About from './screens/About';
 import Settings from './screens/Settings';
 import Mesurements from './screens/Mesurements';
-import {DrawerContent} from './styles/drawerContent';
+import TestsData from './seeMoreHome/testesData';
+import EventsData from './seeMoreHome/eventsData';
+import MesurementsData from './seeMoreHome/mesurmentsData';
+
+
 
 
  {/*Navigators Stack - Drawer - Tab - Container*/}
@@ -81,7 +86,7 @@ function TabNavigator(){
           activeTintColor: '#A8D28F',
           inactiveTintColor: 'gray',
         }}>
-    <Tab.Screen name="Home" component={DrawerNavigator} backBehavior='none' />
+    <Tab.Screen name="Home" component={DrawerNavigator} />
     <Tab.Screen name="Tests" component={StackTestsNavigation} />
     <Tab.Screen name="Events" component={StackEventsNavigation} />
     <Tab.Screen name="Mesurments" component={StackMesurementsNavigation} />
@@ -96,16 +101,17 @@ function TabNavigator(){
     <StackHome.Navigator initialRouteName="Home">
       <StackHome.Screen name="Home" component={Home} 
         options={
-          ({ navigation, route }) => ({
-          headerTitle: props => <Entypo
+          ({  navigation, route }) => ({
+              headerTitle: props => <Entypo
                 onPress={() => navigation.openDrawer()}
                 name='menu'
                 size={30}
                 color='black'
                 {...props}/>,
-        })}
-        
-      />
+        })}/>
+        <StackHome.Screen name="TestsData" component={TestsData} />
+        <StackHome.Screen name="EventsData" component={EventsData} />
+        <StackHome.Screen name="MesurmentsData" component={MesurementsData} />
   </StackHome.Navigator>
 )
 }
@@ -122,9 +128,9 @@ function TabNavigator(){
 {/*Tests Stack navigator to manage the move in home page*/}
 function StackMesurementsNavigation(){
   return (
-    <StackTests.Navigator initialRouteName="Mesurements">
-      <StackTests.Screen name="Mesurements" component={Mesurements} />
-  </StackTests.Navigator>
+    <StackMesurements.Navigator initialRouteName="Mesurements">
+      <StackMesurements.Screen name="Mesurements" component={Mesurements} />
+  </StackMesurements.Navigator>
 )
 }
 

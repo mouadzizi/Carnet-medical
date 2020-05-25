@@ -22,6 +22,7 @@ export function DrawerContent(props){
     const toggleTheme = () => {
         setIsDarkTheme(!isDarkTheme);
     }
+    
     return(
         
         <View style={{flex:1}}>

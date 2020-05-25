@@ -7,10 +7,10 @@ import {GlobalStyle} from '../styles/GlobalStyle';
 export default function Home({navigation}) {
   return (
 
-    <ScrollView>
+    <ScrollView >
     <View style={GlobalStyle.container}>
 
-    <Card >
+    <Card>
 
       <Card.Content>
         <Title>Mesurments</Title>
@@ -20,7 +20,7 @@ export default function Home({navigation}) {
       <Card.Cover source={require('../assets/mesurements.jpg')} />
       <Card.Actions>
         <Button
-        onPress={()=> alert('dialog with all Mesurements')}
+        onPress={()=>navigation.navigate('MesurmentsData')}
         color='green'>See More</Button>
       </Card.Actions>
 
@@ -35,7 +35,7 @@ export default function Home({navigation}) {
       <Card.Cover source={require('../assets/tests.jpg')} />
       <Card.Actions>
         <Button
-        onPress={()=> alert('dialog with all Tests')}
+        onPress={()=>navigation.navigate('TestsData')}
         color='green'>
         See More</Button>
       </Card.Actions>
@@ -54,7 +54,7 @@ export default function Home({navigation}) {
       <Card.Cover source={require('../assets/events.jpg')} />
       <Card.Actions>
         <Button
-        onPress={()=> alert('dialog with all Events')}
+        onPress={()=>navigation.navigate('EventsData')}
         color='green'>
         See More</Button>
       </Card.Actions>
