@@ -3,7 +3,6 @@ import {View} from 'react-native';
 
 import AddTest from '../add/addTests';
 import {GlobalStyle} from '../styles/GlobalStyle'
-import { ScrollView } from 'react-native-gesture-handler';
 
 
 
