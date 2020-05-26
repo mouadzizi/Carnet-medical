@@ -92,7 +92,8 @@ export default function Profil() {
         />
 
         <TouchableOpacity
-        onPress={()=> alert('information are updated')}>
+        onPress={()=> alert('information are updated')}
+        style={{marginBottom: 20}}>
         <Text
         style={GlobalStyle.buttonSignUp}>Confirme</Text>
         </TouchableOpacity>
