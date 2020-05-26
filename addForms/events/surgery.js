@@ -15,7 +15,7 @@ export default function surgery() {
       
     <View style={GlobalStyle.formContainer}>
 
-    <Text style={GlobalStyle.formTitle}> Doctor's appointment </Text>
+    <Text style={GlobalStyle.formTitle}> Surgery </Text>
 
         <View style={GlobalStyle.formDateContainer}>
        <DateTimePicker />
