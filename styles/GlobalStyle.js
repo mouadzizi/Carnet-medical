@@ -131,6 +131,9 @@ export const GlobalStyle = StyleSheet.create({
     paddingVertical: 12,
     paddingHorizontal: 16,
   },
+  preference2: {
+    flexDirection: 'row',
+  },
   formContainer:{
     flex: 1,
   },
@@ -139,7 +142,6 @@ export const GlobalStyle = StyleSheet.create({
     justifyContent: 'space-between',
     marginLeft: 15,
     marginRight: 15,
-    backgroundColor: '#fff'
   },
   formTitle:{
     fontWeight: 'bold',
@@ -148,8 +150,7 @@ export const GlobalStyle = StyleSheet.create({
   },
   formSubTitle:{
     fontSize: 20,
-    margin: 25,
+    margin: 5,
   },
 
 });
-
