@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {Button} from 'react-native-elements';
 import Entypo from 'react-native-vector-icons/Entypo'
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -34,7 +34,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-
 
 
  {/*Creating Navigators*/}
@@ -158,9 +157,10 @@ function StackMesurementsNavigation(){
   </StackEvents.Navigator>
 )
 }
+
+
 export default function App() {
   
-
   return (
     //Stack Navigator for the main page
     <NavigationContainer>

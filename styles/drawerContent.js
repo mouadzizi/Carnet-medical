@@ -4,6 +4,7 @@ import {Text, View, StyleSheet} from 'react-native';
 import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
+import {auth} from '../database/firebase';
 
 import { 
     Avatar,
@@ -137,6 +138,7 @@ export function DrawerContent(props){
                 />
             )}
             label="Sign Out"
+            onPress={()=> auth.signOut()}
         />
 
         </Drawer.Section>

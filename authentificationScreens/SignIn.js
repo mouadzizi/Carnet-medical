@@ -1,14 +1,13 @@
 import React from 'react';
-import {Text, View, BackHandler  } from 'react-native';
-import { HelperText, TextInput } from 'react-native-paper';
+import {Text, View, TouchableOpacity} from 'react-native';
+import {TextInput} from 'react-native-paper';
 
 import {GlobalStyle} from '../styles/GlobalStyle'
 import * as Animatable from 'react-native-animatable'
-import { TouchableOpacity } from 'react-native-gesture-handler';
-
 
 
 export default function SignIn({navigation}) {
+
 
   return (
 
