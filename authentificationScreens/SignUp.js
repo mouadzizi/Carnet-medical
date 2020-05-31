@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Text, View} from 'react-native';
+import {Text, View, Alert} from 'react-native';
 import {TextInput} from 'react-native-paper';
 
 import {GlobalStyle} from '../styles/GlobalStyle'
@@ -11,49 +11,42 @@ import {auth} from '../database/firebase';
 
 
 
-
 export default function SignUp({navigation}) {
+
 
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [confirmPassword, setConfirmPassword] = useState("")
-  const [err, setErr] = useState("")
+  const [userName,setUserName]=useState("")
 
   function CreatUser() {
-    auth.createUserWithEmailAndPassword(email, password)
-    .then(() => {
-      console.log('User account created & signed in!');
-    })
+    
+    auth.createUserWithEmailAndPassword(email.trim(), password)
     .catch(error => {
-      if (error.code === 'auth/email-already-in-use') {
-        setErr('That email address is already in use!');
-      }
-  
-      if (error.code === 'auth/invalid-email') {
-        setErr('That email address is invalid!');
-      }
-      if (password.length <= 7 ) {
-        setErr('Password should be at least 8 caracters');
-      }
-      if (!password.equals(confirmPassword)) {
-        setErr('Password not identical');
-      }
-  
-      console.error(error);
+      Alert.alert(error.message)
     });
   }
+
   return (
     <View style={GlobalStyle.SplashContainer}>
       <View style={GlobalStyle.SignInHeader}>
         <Text style={GlobalStyle.titleSplash}>Sign Up with us</Text>
       </View>
-
+      
       <Animatable.View 
       style={GlobalStyle.SignInFooter}
       animation="fadeInUpBig"
       duration={2500}>
 
-        <Text style={{color:'red', alignSelf: 'center'}}>{err}</Text>
+        <TextInput
+        label='Full Name'
+        mode='outlined'
+        placeholder='e.g mohamed mousawi'
+        theme={{colors: {primary: '#A8D28F', background: '#fff' }}}
+        style={{marginTop: 50}}
+        onChangeText={text => setUserName(text)}
+        />
+
         <TextInput
         label='Email'
         mode='outlined'
@@ -100,11 +93,12 @@ export default function SignUp({navigation}) {
         </TouchableOpacity>
 
         <TouchableOpacity
-          onPress={()=> {CreatUser(), navigation.navigate('TabNavigator')} }>
+          onPress={()=>{CreatUser()}}>
           <Text style={GlobalStyle.buttonSignIn}>Sign Up</Text>
         </TouchableOpacity>
 
       </Animatable.View>
       </View>
   );
+
 }

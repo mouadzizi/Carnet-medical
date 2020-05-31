@@ -1,5 +1,5 @@
-import React from 'react';
-import {Text, View, StyleSheet} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {Text, View, StyleSheet, Alert} from 'react-native';
 
 import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
@@ -18,12 +18,26 @@ import {
 
 
 export function DrawerContent(props){
+    
+    useEffect(()=>{
+        auth.onAuthStateChanged(user=>{
+            if(user)  
+            setName(user.displayName)
+        })
+        
+    },[])
 
     const [isDarkTheme, setIsDarkTheme] = React.useState(false);
+    const[userName,setName]= useState("");
+
     const toggleTheme = () => {
         setIsDarkTheme(!isDarkTheme);
     }
-    
+    function signOutUser() {
+        
+        auth.signOut()
+        .catch(err=>Alert.alert('Error',err.message))
+    }
     return(
         
         <View style={{flex:1}}>
@@ -38,8 +52,8 @@ export function DrawerContent(props){
                 </View>
 
                 <View style={{marginLeft:15,marginTop: 15,flexDirection: 'column'}}>
-                    <Title style={styles.title}> Moad Zizi</Title>
-                    <Caption style={styles.caption}>@mouad.zizi</Caption>
+                    <Title style={styles.title}> {userName} </Title>
+                    <Caption style={styles.caption}>@{userName}</Caption>
                 </View>
             </View>
 
@@ -138,7 +152,7 @@ export function DrawerContent(props){
                 />
             )}
             label="Sign Out"
-            onPress={()=> auth.signOut()}
+            onPress={()=> signOutUser()}
         />
 
         </Drawer.Section>

@@ -1,13 +1,23 @@
-import React from 'react';
-import {Text, View, TouchableOpacity} from 'react-native';
+import React, {useState} from 'react';
+import {Text, View, TouchableOpacity, Alert} from 'react-native';
 import {TextInput} from 'react-native-paper';
-
 import {GlobalStyle} from '../styles/GlobalStyle'
+
 import * as Animatable from 'react-native-animatable'
 
+import {auth} from '../database/firebase';
 
 export default function SignIn({navigation}) {
 
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+
+  function signIn() {
+    auth.signInWithEmailAndPassword(email.trim(), password)
+    .catch(error => {
+      Alert.alert(error.message)
+    });
+  }
 
   return (
 
@@ -28,6 +38,7 @@ export default function SignIn({navigation}) {
         placeholder='e.g: yourMail@mail.com'
         theme={{colors: {primary: '#A8D28F', background: '#fff' }}}
         style={{marginTop: 50}}
+        onChangeText={text => setEmail(text)}
         />
         <TextInput
         label='Password'
@@ -36,6 +47,7 @@ export default function SignIn({navigation}) {
         theme={{colors: {primary: '#A8D28F', background: '#fff' }}}
         secureTextEntry={true}
         style={{marginTop: 25}}
+        onChangeText={text => setPassword(text)}
         />
 
         <TouchableOpacity
@@ -48,13 +60,13 @@ export default function SignIn({navigation}) {
         </TouchableOpacity>
 
         <TouchableOpacity
-        onPress={()=> navigation.replace('TabNavigator')}>
+        onPress={()=> signIn()}>
         <Text
         style={GlobalStyle.buttonSignIn}>Sign In</Text>
         </TouchableOpacity>
         
         <TouchableOpacity
-        onPress={()=> navigation.navigate('SignUp')}>
+        onPress={()=> navigation.navigate('SignUp') }>
         <Text
         style={GlobalStyle.buttonSignUp}>Sign Up</Text>
         </TouchableOpacity>
