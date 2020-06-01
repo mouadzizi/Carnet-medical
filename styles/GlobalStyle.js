@@ -8,31 +8,71 @@ export const GlobalStyle = StyleSheet.create({
       justifyContent: 'flex-start',
     },
 
+    slideSplashScreen:{
+      flex: 2,
+      backgroundColor: 'white',
+      marginTop: 100,
+    },
+    splashTitle:{
+      fontSize: 25,
+      fontWeight: 'bold',
+      color: '#7FBF4D',
+      textAlign: 'center',
+    },
+    splashText:{
+      color: 'grey',
+      marginTop: 20,
+      textAlign: 'center',
+    },
+    dot:{
+      backgroundColor: 'grey',
+      width: 8,
+      height: 8,
+      borderRadius: 4,
+      marginHorizontal: 5,
+      marginVertical: 3,
+    },
+    dotActive:{
+      backgroundColor: '#7FBF4D',
+      width: 20,
+      height: 8,
+      borderRadius: 4,
+      marginHorizontal: 5,
+      marginVertical: 3,
+    },
+    headerSplashScreen: {
+      flex: 2,
+      alignContent: 'center',
+      alignItems: 'center',
+
+    },
+
+    footerSplashScreen: {
+      flex: 1,
+      alignItems: 'center',
+      paddingHorizontal: 20,
+    },
+
     SplashContainer:{
       flex:1,
       backgroundColor: '#A8D28F',
     },
-    headerSplash:{
-      flex: 2,
+    btnSplash:{
+      width: 100,
+      height: 40,
       justifyContent: 'center',
       alignItems: 'center',
-    },
-    footerSplash:{
-      flex: 1,
-      backgroundColor: 'white',
-      borderTopLeftRadius: 30,
-      borderTopRightRadius: 30,
-      paddingVertical: 50,
-      paddingHorizontal: 30,
     },
     logo:{
       height: 150,
       width: 150,
+      alignSelf: 'center',
+      marginTop: 150,
     },
     titleSplash:{
-      fontSize: 30,
+      fontSize: 40,
       fontWeight: 'bold',
-      color: '#573085',
+      color: 'white',
     }, 
     buttonSplash:{
       width: 150,
@@ -71,7 +111,13 @@ export const GlobalStyle = StyleSheet.create({
       flex: 1,
       justifyContent: 'flex-end',
       paddingHorizontal: 20,
-      paddingBottom: 50,
+      paddingBottom: 20,
+    },
+    SignUpHeader:{
+      flex: 1,
+      justifyContent: 'flex-end',
+      paddingHorizontal: 20,
+      paddingBottom: 20,
     },
     SignInFooter: {
       flex: 3,

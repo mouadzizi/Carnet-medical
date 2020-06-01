@@ -32,6 +32,7 @@
     "react-native-screens": "^2.2.0",
     "react-native-simple-dialogs": "^1.2.1",
     "react-native-svg": "^12.1.0",
+    "react-native-swiper": "^1.6.0",
     "react-native-web": "~0.11.7"
   },
   "devDependencies": {

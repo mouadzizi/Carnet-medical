@@ -1,10 +1,9 @@
 import React, {useState} from 'react';
-import {Text, View, Alert} from 'react-native';
+import {Text, View, Alert, TouchableOpacity, TouchableWithoutFeedback, Keyboard} from 'react-native';
 import {TextInput} from 'react-native-paper';
 
 import {GlobalStyle} from '../styles/GlobalStyle'
 import * as Animatable from 'react-native-animatable'
-import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import {auth} from '../database/firebase';
 
@@ -19,6 +18,7 @@ export default function SignUp({navigation}) {
   const [confirmPassword, setConfirmPassword] = useState("")
   const [userName,setUserName]=useState("")
 
+
   function CreatUser() {
     
     auth.createUserWithEmailAndPassword(email.trim(), password)
@@ -28,22 +28,33 @@ export default function SignUp({navigation}) {
   }
 
   return (
-    <View style={GlobalStyle.SplashContainer}>
-      <View style={GlobalStyle.SignInHeader}>
-        <Text style={GlobalStyle.titleSplash}>Sign Up with us</Text>
-      </View>
+    <TouchableWithoutFeedback
+    onPress={()=> Keyboard.dismiss()}>
       
-      <Animatable.View 
+    <View style={GlobalStyle.SplashContainer}>
+      <View style={GlobalStyle.SignUpHeader}>
+
+        <Text style={GlobalStyle.titleSplash}>Sign Up</Text>
+        <Text style={{
+          color:'white',
+          fontSize: 15,
+          fontWeight: "100",
+        }}>
+        Sign Up with Email and password</Text>
+      </View>
+
+      <Animatable.View
       style={GlobalStyle.SignInFooter}
       animation="fadeInUpBig"
       duration={2500}>
 
+        <Text></Text>
         <TextInput
         label='Full Name'
         mode='outlined'
-        placeholder='e.g mohamed mousawi'
+        placeholder='e.g: FirstName LastName'
         theme={{colors: {primary: '#A8D28F', background: '#fff' }}}
-        style={{marginTop: 50}}
+        style={{marginTop: 10}}
         onChangeText={text => setUserName(text)}
         />
 
@@ -52,7 +63,7 @@ export default function SignUp({navigation}) {
         mode='outlined'
         placeholder='e.g "yourMail@mail.com"'
         theme={{colors: {primary: '#A8D28F', background: '#fff' }}}
-        style={{marginTop: 50}}
+        style={{marginTop: 10}}
         onChangeText={text => setEmail(text)}
         />
 
@@ -62,9 +73,10 @@ export default function SignUp({navigation}) {
         placeholder='Password must contain at least 8 lettres'
         theme={{colors: {primary: '#A8D28F', background: '#fff' }}}
         secureTextEntry={true}
-        style={{marginTop: 25}}
+        style={{marginTop: 10}}
         onChangeText={text => setPassword(text)}
         />
+        
 
         <TextInput
         label='Confirm Password'
@@ -72,7 +84,7 @@ export default function SignUp({navigation}) {
         placeholder='Confirme your Password'
         theme={{colors: {primary: '#A8D28F', background: '#fff' }}}
         secureTextEntry={true}
-        style={{marginTop: 25}}
+        style={{marginTop: 10}}
         onChangeText={text => setConfirmPassword(text)}
         />
 
@@ -83,22 +95,25 @@ export default function SignUp({navigation}) {
           color: '#DFDFDF',
         }}>By Signing up you agree to our: </Text>
         <TouchableOpacity
-        onPress={()=> alert('sorry mate can\'t help for now ')}>
+        onPress={()=> alert('Comming up on the next virsion')}>
   
           <Text style={{
             fontWeight: 'bold',
-            color: '#573085',
+            color: '#A8D28F',
           }}>Terms of services and Privacy policy</Text>
 
         </TouchableOpacity>
 
         <TouchableOpacity
           onPress={()=>{CreatUser()}}>
-          <Text style={GlobalStyle.buttonSignIn}>Sign Up</Text>
+          <Text style={GlobalStyle.buttonSignIn}>Creat Account</Text>
         </TouchableOpacity>
 
-      </Animatable.View>
+        </Animatable.View>
+
       </View>
+      
+    </TouchableWithoutFeedback>
   );
 
 }

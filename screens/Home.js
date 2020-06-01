@@ -32,7 +32,7 @@ export default function Home({navigation}) {
         <Paragraph>Analyse - Radiologie - Vaccins - medicaments</Paragraph>
       </Card.Content>
       
-      <Card.Cover source={require('../assets/tests.jpg')} />
+      <Card.Cover source={require('../assets/slide3.png')} />
       <Card.Actions>
         <Button
         onPress={()=>navigation.navigate('TestsData')}

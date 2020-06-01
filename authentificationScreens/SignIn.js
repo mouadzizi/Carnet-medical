@@ -23,7 +23,14 @@ export default function SignIn({navigation}) {
 
     <View style={GlobalStyle.SplashContainer}>
      <View style={GlobalStyle.SignInHeader}>
-        <Text style={GlobalStyle.titleSplash}>Welcome To MedDoc</Text>
+
+        <Text style={GlobalStyle.titleSplash}>Login</Text>
+        <Text style={{
+          color:'white',
+          fontSize: 15,
+          fontWeight: "100",
+        }}>
+        Login with Email and password</Text>
       </View>
 
       <Animatable.View 
@@ -51,11 +58,11 @@ export default function SignIn({navigation}) {
         />
 
         <TouchableOpacity
-        onPress={()=> alert('sorry mate can\'t help for now ')}>
+        onPress={()=> alert('comming up on the next virsion')}>
         <Text style={{
           marginTop: 15,
           fontWeight: 'bold',
-          color: '#573085',
+          color: '#A8D28F',
         }}>Forgot Password ?</Text>
         </TouchableOpacity>
 
