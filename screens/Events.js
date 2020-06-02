@@ -21,7 +21,7 @@ export default function Events ({navigation}) {
     style={{margin: 20}}
     title="Hospital"
     description="Item description"
-    left={props => <FontAwesome name='hospital-o' size={50} color='#A8D28F' />}
+    left={props => <FontAwesome name='hospital-o' size={45} color='#A8D28F' />}
     />
 
     <List.Item
@@ -29,7 +29,7 @@ export default function Events ({navigation}) {
     style={{margin: 20}}
     title="Doctors"
     description="Item description"
-    left={props => <Fontisto name='doctor' size={50} color='#A8D28F' />}
+    left={props => <Fontisto name='doctor' size={45} color='#A8D28F' />}
     />
 
     <List.Item
@@ -37,7 +37,7 @@ export default function Events ({navigation}) {
     style={{margin: 20}}
     title="Laboratory"
     description="Item description"
-    left={props => <Fontisto name='laboratory' size={50} color='#A8D28F' />}
+    left={props => <Fontisto name='laboratory' size={45} color='#A8D28F' />}
     />
 
     <List.Item
@@ -45,7 +45,7 @@ export default function Events ({navigation}) {
     style={{margin: 20}}
     title="Pharmacy"
     description="Item description"
-    left={props => <MaterialIcons name='local-pharmacy' size={50} color='#A8D28F' />}
+    left={props => <MaterialIcons name='local-pharmacy' size={45} color='#A8D28F' />}
     />
     </View>
     </ScrollView>
