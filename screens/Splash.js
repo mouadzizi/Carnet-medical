@@ -28,36 +28,36 @@ export default function Splash( {navigation} ) {
       
       <View style={GlobalStyle.footerSplashScreen}>
           <Text style={GlobalStyle.splashTitle}> MedDoc application </Text>
-          <Text style={GlobalStyle.splashText}> your health book, your smart solution </Text>
+          <Text style={GlobalStyle.splashText}> MedDoc provide you the best technologies, to observe your health. </Text>
       </View>
     </View>
 
-
-    <View style={GlobalStyle.slideSplashScreen}>
-      <View style={GlobalStyle.headerSplashScreen}>
-        <Image
-            source={require("../assets/slide2.png")}
-            style={{height:height_image, width: width_image, marginTop: 20}}
-            resizeMode={"stretch"}/>
-      </View>
-      
-      <View style={GlobalStyle.footerSplashScreen}>
-          <Text style={GlobalStyle.splashTitle}> Mesurements </Text>
-          <Text style={GlobalStyle.splashText}> MedDoc provide you the ability to add your latest analyse and mesurements to keep latest updates </Text>
-      </View>
-    </View>
 
     <View style={GlobalStyle.slideSplashScreen}>
       <View style={GlobalStyle.headerSplashScreen}>
         <Image
             source={require("../assets/slide3.png")}
-            style={{height:height_image, width: width_image}}
+            style={{height:height_image, width: width_image, marginTop: 20}}
             resizeMode={"stretch"}/>
       </View>
       
       <View style={GlobalStyle.footerSplashScreen}>
-        <Text style={GlobalStyle.splashTitle}> Tests </Text>
-          <Text style={GlobalStyle.splashText}> MedDoc provide you the ability to add your latest analyse and mesurements to keep latest updates </Text>
+          <Text style={GlobalStyle.splashTitle}> Medical Act </Text>
+          <Text style={GlobalStyle.splashText}> MedDoc provide a dynamic platform to store your medical measurements, analytics, radiology and so many more.</Text>
+      </View>
+    </View>
+
+    <View style={GlobalStyle.slideSplashScreen}>
+      <View style={GlobalStyle.headerSplashScreen}>
+        <Image
+            source={require("../assets/slide2.png")}
+            style={{height:height_image, width: width_image, marginTop: 30}}
+            resizeMode={"stretch"}/>
+      </View>
+      
+      <View style={GlobalStyle.footerSplashScreen}>
+        <Text style={GlobalStyle.splashTitle}> Medical facilities </Text>
+          <Text style={GlobalStyle.splashText}> MedDoc allows you to see all the medical facilities on your city. </Text>
       </View>
     </View>
 
@@ -65,18 +65,17 @@ export default function Splash( {navigation} ) {
       <View style={GlobalStyle.headerSplashScreen}>
         <Image
             source={require("../assets/slide4.png")}
-            style={{height:height_image, width: width_image}}
+            style={{height:height_image, width: width_image, marginTop: 20}}
             resizeMode={"stretch"}/>
       </View>
       
       <View style={GlobalStyle.footerSplashScreen}>
-          <Text style={GlobalStyle.splashTitle}> MedDoc application </Text>
+          <Text style={GlobalStyle.splashTitle}> Locations </Text>
           <Text style={GlobalStyle.splashText}> 
-          MedDoc allow you to see all the doctors near you and also to have an opointment with your doctor </Text>
+          MedDoc allow you to find the nearest doctor, Laboratory, hospital or pharmacy on the map. </Text>
       
       <View 
-      style={{flexDirection:'row'}}
-      animation="bounceIn">
+      style={{flexDirection:'row'}}>
         <TouchableOpacity
           onPress={()=> navigation.replace('SignUp')}
           style={[GlobalStyle.btnSplash,{

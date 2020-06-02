@@ -12,11 +12,11 @@ import {auth} from '../database/firebase';
 
 export default function SignUp({navigation}) {
 
-
+  const [userName,setUserName]=useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [confirmPassword, setConfirmPassword] = useState("")
-  const [userName,setUserName]=useState("")
+ 
 
 
   function CreatUser() {
@@ -48,11 +48,10 @@ export default function SignUp({navigation}) {
       animation="fadeInUpBig"
       duration={2500}>
 
-        <Text></Text>
         <TextInput
-        label='Full Name'
+        label='UsserName'
         mode='outlined'
-        placeholder='e.g: FirstName LastName'
+        placeholder='e.g: CoolName'
         theme={{colors: {primary: '#A8D28F', background: '#fff' }}}
         style={{marginTop: 10}}
         onChangeText={text => setUserName(text)}
@@ -70,13 +69,12 @@ export default function SignUp({navigation}) {
         <TextInput
         label='Password'
         mode='outlined'
-        placeholder='Password must contain at least 8 lettres'
+        placeholder='Password must contain at least 6 characters'
         theme={{colors: {primary: '#A8D28F', background: '#fff' }}}
         secureTextEntry={true}
         style={{marginTop: 10}}
         onChangeText={text => setPassword(text)}
         />
-        
 
         <TextInput
         label='Confirm Password'
@@ -108,6 +106,15 @@ export default function SignUp({navigation}) {
           onPress={()=>{CreatUser()}}>
           <Text style={GlobalStyle.buttonSignIn}>Creat Account</Text>
         </TouchableOpacity>
+
+        <View style={{flexDirection: 'row', alignItems: 'center', alignSelf: 'center', marginTop: 20}}>
+        <Text style={{fontSize: 15, color: 'grey'}}> You already have an account ? </Text>
+        
+        <TouchableOpacity
+        onPress={()=> navigation.replace('SignIn')}>
+          <Text style={{color:'green'}}>Sign In</Text>
+        </TouchableOpacity>
+        </View>
 
         </Animatable.View>
 

@@ -28,6 +28,11 @@ import BloodPressur from './addForms/mesurments/bloodPressure';
 import Pulse from './addForms/mesurments/pulse';
 import SugerLevel from './addForms/mesurments/sugerLevel';
 
+import Laboratory from './addForms/lab';
+import Hospitals from './addForms/hospitals';
+import Doctors from './addForms/doctors';
+import Pharmacy from './addForms/pharmacie'; 
+
 import { auth } from './database/firebase';
 
 {/*Navigators Stack - Drawer - Tab - Container*/ }
@@ -76,14 +81,14 @@ function TabNavigator() {
             iconName = focused
               ? 'ios-home'
               : 'ios-home';
-          } if (route.name === 'Tests') {
+          } if (route.name === 'Medical act') {
             iconName = focused ? 'ios-list-box' : 'ios-list';
           }
-          if (route.name === 'Mesurments') {
+          if (route.name === 'Medical facilities') {
             iconName = focused ? 'ios-heart' : 'ios-heart';
           }
-          else if (route.name === 'Events') {
-            iconName = focused ? 'ios-timer' : 'ios-timer';
+          else if (route.name === 'Location') {
+            iconName = focused ? 'ios-map' : 'ios-map';
           }
 
           return <Ionicons name={iconName} size={size} color={color} />;
@@ -94,9 +99,9 @@ function TabNavigator() {
         inactiveTintColor: 'gray',
       }}>
       <Tab.Screen name="Home" component={DrawerNavigator} />
-      <Tab.Screen name="Tests" component={StackTestsNavigation} />
-      <Tab.Screen name="Events" component={StackEventsNavigation} />
-      <Tab.Screen name="Mesurments" component={StackMesurementsNavigation} />
+      <Tab.Screen name="Medical act" component={StackTestsNavigation} />
+      <Tab.Screen name="Medical facilities" component={StackEventsNavigation} />
+      <Tab.Screen name="Location" component={StackMesurementsNavigation} />
     </Tab.Navigator>
 
   )
@@ -131,6 +136,11 @@ function StackTestsNavigation() {
       <StackTests.Screen name="Analyses" component={Analyses} />
       <StackTests.Screen name="Radiology" component={Radiology} />
       <StackTests.Screen name="Vaccins" component={Vaccins} />
+      <StackMesurements.Screen name="BloodPressur" component={BloodPressur} />
+      <StackMesurements.Screen name="Pulse" component={Pulse} />
+      <StackMesurements.Screen name="SugerLevel" component={SugerLevel} />
+      <StackEvents.Screen name="Appointment" component={Appointment} />
+      <StackEvents.Screen name="Surgery" component={Surgery} />
     </StackTests.Navigator>
   )
 }
@@ -140,10 +150,6 @@ function StackMesurementsNavigation() {
   return (
     <StackMesurements.Navigator initialRouteName="Mesurements">
       <StackMesurements.Screen name="Mesurements" component={Mesurements} />
-
-      <StackMesurements.Screen name="BloodPressur" component={BloodPressur} />
-      <StackMesurements.Screen name="Pulse" component={Pulse} />
-      <StackMesurements.Screen name="SugerLevel" component={SugerLevel} />
     </StackMesurements.Navigator>
   )
 }
@@ -153,18 +159,22 @@ function StackEventsNavigation() {
   return (
     <StackEvents.Navigator initialRouteName="Events">
       <StackEvents.Screen name="Events" component={Events} />
-      <StackEvents.Screen name="Appointment" component={Appointment} />
-      <StackEvents.Screen name="Surgery" component={Surgery} />
+      <StackEvents.Screen name="Laboratory" component={Laboratory} />
+      <StackEvents.Screen name="Hospitals" component={Hospitals} />
+      <StackEvents.Screen name="Doctors" component={Doctors} />
+      <StackEvents.Screen name="Pharmacy" component={Pharmacy} />
     </StackEvents.Navigator>
   )
 }
+
+
 function StackAuthentification () {
   return (
   <StackApp.Navigator initialRouteName="Splash">
 
   <StackApp.Screen name="Splash" component={Splash} options={{ headerShown: false }} />
   <StackApp.Screen name="SignIn" component={SignIn} options={{ headerShown: false }} />
-  <StackApp.Screen name="SignUp" component={SignUp} options={{ headerTitle: '' }} />
+  <StackApp.Screen name="SignUp" component={SignUp} options={{ headerShown: false }} />
 </StackApp.Navigator>
 )
 }

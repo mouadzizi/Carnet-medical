@@ -72,11 +72,14 @@ export default function SignIn({navigation}) {
         style={GlobalStyle.buttonSignIn}>Sign In</Text>
         </TouchableOpacity>
         
+        <View style={{flexDirection: 'row', alignItems: 'center', alignSelf: 'center', marginTop: 20}}>
+        <Text style={{fontSize: 15, color: 'grey'}}> You don't have an account ? </Text>
+        
         <TouchableOpacity
-        onPress={()=> navigation.navigate('SignUp') }>
-        <Text
-        style={GlobalStyle.buttonSignUp}>Sign Up</Text>
+        onPress={()=> navigation.replace('SignUp')}>
+          <Text style={{color:'green'}}>Sign Up</Text>
         </TouchableOpacity>
+        </View>
 
       </Animatable.View>
       </View>
