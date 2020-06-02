@@ -1,6 +1,6 @@
 import React from 'react';
-import {Text, View, ScrollView } from 'react-native';
-import {List, Button, Card, Title } from 'react-native-paper';
+import {View, ScrollView } from 'react-native';
+import {List} from 'react-native-paper';
 
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Fontisto from 'react-native-vector-icons/Fontisto';
