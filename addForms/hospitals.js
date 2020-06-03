@@ -1,9 +1,8 @@
 import React from 'react';
-import {ScrollView, View} from 'react-native';
-import {List} from 'react-native-paper';
+import {ScrollView, View, Alert} from 'react-native';
+import {List, FAB} from 'react-native-paper';
 
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-
 import {GlobalStyle} from '../styles/GlobalStyle';
 
 export default function Hospitals() {
@@ -12,59 +11,63 @@ export default function Hospitals() {
     <View style={GlobalStyle.container}>
     
     <List.Item
+    onPress={() => Alert.alert('Phone Number', '05399-30856')}
     style={{margin: 20}}
     title="Hôpital Mohammed V"
-    description="Téléphone : 05399-30856 "
-    description="Adresse : 1 Avenue Moulay Rachid, Tanger 90100 "
-    description="Horaires : Ouvert 24 h/24 "
+    description="Adresse : 1 Avenue Moulay Rachid, Tanger"
     left={props => <FontAwesome name='hospital-o' size={45} color='#A8D28F' />}
     />
 
     <List.Item
+    onPress={() => Alert.alert('Phone Number', '05399-34242')}
     style={{margin: 20}}
     title="Hôpital Al Kortobi"
-    description="Téléphone :  05399-34242 "
     description="Adresse : Rue Assad Ibn al Farrat, Tangier "
-    description="Horaires : Ouvert 24 h/24 "
     left={props => <FontAwesome name='hospital-o' size={45} color='#A8D28F' />}
     />
 
     <List.Item
+    onPress={() => Alert.alert('Phone Number', ' 05399-46976')}
     style={{margin: 20}}
-    title="Hôpital Al Kortobi"
-    description="Téléphone :  05399-46976 "
+    title="Croissant Rouge"
     description="Adresse : Rue Al Mansour Eddahbi, Tanger "
-    description="Horaires : Ouvert 24 h/24 "
     left={props => <FontAwesome name='hospital-o' size={45} color='#A8D28F' />}
     />
 
     <List.Item
+    onPress={() => Alert.alert('Phone Number', '05393-40404')}
     style={{margin: 20}}
     title="Clinique Tingis"
-    description="Téléphone :  05393-40404 "
     description="Avenue Abou Bakr Errazi, Tanger 90060"
-    description="Horaires : Ouvert 24 h/24 "
     left={props => <FontAwesome name='hospital-o' size={45} color='#A8D28F' />}
     />
     
     <List.Item
+    onPress={() => Alert.alert('Phone Number', ' 05399-31288')}
     style={{margin: 20}}
     title="Hopital Italien"
-    description="Téléphone :  05399-31288 "
     description="Avenue Italien, Tanger 90060"
-    description="Horaires : Ouvert 24 h/24 "
     left={props => <FontAwesome name='hospital-o' size={45} color='#A8D28F' />}
     />
 
     <List.Item
-    style={{margin: 20}}
+    onPress={() => Alert.alert('Phone Number', ' 0621-559508')}
+    style={{margin: 20, marginBottom: 60}}
     title="Esthetique Tanger"
-    description="Téléphone :  05393-40404 "
     description="64 Rue de Fès, Tanger 90000"
-    description="Horaires : 07:00  à 22:00 "
     left={props => <FontAwesome name='hospital-o' size={45} color='#A8D28F' />}
+    />
+
+    <FAB
+    style={GlobalStyle.fab}
+    small
+    icon="map"
+    label="find hospital"
+    color="white"
+    onPress={() => Alert.alert('WebView', 'Hospital in your city')}
     />
     </View>
     </ScrollView>
   );
 }
+

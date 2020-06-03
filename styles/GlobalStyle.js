@@ -107,6 +107,13 @@ export const GlobalStyle = StyleSheet.create({
       borderColor: '#A8D28F',
       borderWidth: 2,
     },
+    fab: {
+      position: 'absolute',
+      margin: 16,
+      right: 0,
+      bottom: 0,
+      backgroundColor: '#A8D28F'
+    },
     SignInHeader:{
       flex: 1,
       justifyContent: 'flex-end',
