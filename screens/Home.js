@@ -13,8 +13,8 @@ export default function Home({navigation}) {
     <Card>
 
       <Card.Content>
-        <Title>Mesurments</Title>
-        <Paragraph>Suger level - Blood pressur - Pulse </Paragraph>
+        <Title>Medical act data</Title>
+        <Paragraph>here you can see all your medical act</Paragraph>
       </Card.Content>
 
       <Card.Cover source={require('../assets/mesurements.jpg')} />
@@ -28,11 +28,11 @@ export default function Home({navigation}) {
 
     <Card style={{marginTop: 30}}>
       <Card.Content>
-        <Title>Tests</Title>
-        <Paragraph>Analyse - Radiologie - Vaccins - medicaments</Paragraph>
+        <Title>First Aid</Title>
+        <Paragraph>learn the basics for first aid</Paragraph>
       </Card.Content>
       
-      <Card.Cover source={require('../assets/slide3.png')} />
+      <Card.Cover source={require('../assets/slide3.jpg')} />
       <Card.Actions>
         <Button
         onPress={()=>navigation.navigate('TestsData')}

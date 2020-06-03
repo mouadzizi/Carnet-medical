@@ -31,7 +31,9 @@ import SugerLevel from './addForms/mesurments/sugerLevel';
 import Laboratory from './addForms/lab';
 import Hospitals from './addForms/hospitals';
 import Doctors from './addForms/doctors';
-import Pharmacy from './addForms/pharmacie'; 
+import Pharmacy from './addForms/pharmacie';
+import Blood from './addForms/blood';
+import Ambulance from './addForms/ambulance';
 
 import { auth } from './database/firebase';
 
@@ -85,10 +87,10 @@ function TabNavigator() {
             iconName = focused ? 'ios-list-box' : 'ios-list';
           }
           if (route.name === 'Medical facilities') {
-            iconName = focused ? 'ios-heart' : 'ios-heart';
+            iconName = focused ? 'ios-map' : 'ios-map';
           }
           else if (route.name === 'Location') {
-            iconName = focused ? 'ios-map' : 'ios-map';
+            iconName = focused ? 'ios-heart' : 'ios-heart';
           }
 
           return <Ionicons name={iconName} size={size} color={color} />;
@@ -108,19 +110,29 @@ function TabNavigator() {
 }
 
 {/*Home Stack navigator to manage the move in home page*/ }
-function StackHomeNavigation() {
+function StackHomeNavigation({navigation}) {
   return (
     <StackHome.Navigator initialRouteName="Home">
       <StackHome.Screen name="Home" component={Home}
-        options={
-          ({ navigation, route }) => ({
-            headerTitle: props => <Entypo
-              onPress={() => navigation.openDrawer()}
-              name='menu'
-              size={30}
-              color='black'
-              {...props} />,
-          })} />
+        options={{
+          title: 'MedDoc home',
+          headerLeft: () => (
+            <Entypo
+              name="menu"
+              size={45}
+              color='white'
+              style={{marginLeft: 20}}
+              onPress={()=> navigation.toggleDrawer()}
+            /> ),
+          headerTitleAlign: 'center',
+          headerStyle: {
+            backgroundColor: '#A8D28F',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+        }} />
       <StackHome.Screen name="TestsData" component={TestsData} />
       <StackHome.Screen name="EventsData" component={EventsData} />
       <StackHome.Screen name="MesurmentsData" component={MesurementsData} />
@@ -132,7 +144,18 @@ function StackHomeNavigation() {
 function StackTestsNavigation() {
   return (
     <StackTests.Navigator initialRouteName="Tests">
-      <StackTests.Screen name="Tests" component={Tests} />
+      <StackTests.Screen name="Tests" 
+      component={Tests} options={{
+          title: 'Medical Act',
+          headerTitleAlign: 'center',
+          headerStyle: {
+            backgroundColor: '#A8D28F',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+        }}/>
       <StackTests.Screen name="Analyses" component={Analyses} />
       <StackTests.Screen name="Radiology" component={Radiology} />
       <StackTests.Screen name="Vaccins" component={Vaccins} />
@@ -149,7 +172,18 @@ function StackTestsNavigation() {
 function StackMesurementsNavigation() {
   return (
     <StackMesurements.Navigator initialRouteName="Mesurements">
-      <StackMesurements.Screen name="Mesurements" component={Mesurements} />
+      <StackMesurements.Screen name="Mesurements" component={Mesurements}
+      options={{
+          title: 'Location',
+          headerTitleAlign: 'center',
+          headerStyle: {
+            backgroundColor: '#A8D28F',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+        }}  />
     </StackMesurements.Navigator>
   )
 }
@@ -158,11 +192,24 @@ function StackMesurementsNavigation() {
 function StackEventsNavigation() {
   return (
     <StackEvents.Navigator initialRouteName="Events">
-      <StackEvents.Screen name="Events" component={Events} />
+      <StackEvents.Screen name="Events" component={Events}
+      options={{
+          title: 'Medical facilities',
+          headerTitleAlign: 'center',
+          headerStyle: {
+            backgroundColor: '#A8D28F',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+        }} />
       <StackEvents.Screen name="Laboratory" component={Laboratory} />
       <StackEvents.Screen name="Hospitals" component={Hospitals} />
       <StackEvents.Screen name="Doctors" component={Doctors} />
       <StackEvents.Screen name="Pharmacy" component={Pharmacy} />
+      <StackEvents.Screen name="Blood" component={Blood} />
+      <StackEvents.Screen name="Ambulance" component={Ambulance} />
     </StackEvents.Navigator>
   )
 }
