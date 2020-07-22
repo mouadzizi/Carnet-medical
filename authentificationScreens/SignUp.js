@@ -5,7 +5,7 @@ import {TextInput} from 'react-native-paper';
 import {GlobalStyle} from '../styles/GlobalStyle'
 import * as Animatable from 'react-native-animatable'
 
-import {auth} from '../database/firebase';
+import {auth, db} from '../database/firebase';
 
 
 
@@ -24,8 +24,16 @@ export default function SignUp({navigation}) {
     auth.createUserWithEmailAndPassword(email.trim(), password)
     .catch(error => {
       Alert.alert(error.message)
-    });
+    }).then(userInfo=>{
+      return userInfo.user.updateProfile({displayName:userName});
+    }).then(()=>{
+      db.ref('/user/'+auth.currentUser.uid+'/info').set({
+        username:userName,
+        email:auth.currentUser.email,
+      })
+    })
   }
+
 
   return (
     <TouchableWithoutFeedback

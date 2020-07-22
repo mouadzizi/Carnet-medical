@@ -53,7 +53,7 @@ export function DrawerContent(props){
 
                 <View style={{marginLeft:15,marginTop: 15,flexDirection: 'column'}}>
                     <Title style={styles.title}> {userName} </Title>
-                    <Caption style={styles.caption}>@{userName}</Caption>
+                    <Caption style={styles.caption}>@{auth.currentUser.displayName}</Caption>
                 </View>
             </View>
 
