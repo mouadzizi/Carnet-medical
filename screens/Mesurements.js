@@ -10,7 +10,7 @@ export default function Mesurements({navigation}) {
 <ScrollView>
   <View style={GlobalStyle.container}>
 
-    <Text>this is location page </Text>
+    <Text>this is lsasasszion page </Text>
     </View>
     </ScrollView>
   );

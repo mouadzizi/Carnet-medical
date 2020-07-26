@@ -115,7 +115,7 @@ function StackHomeNavigation({navigation}) {
     <StackHome.Navigator initialRouteName="Home">
       <StackHome.Screen name="Home" component={Home}
         options={{
-          title: 'MedDoc home',
+          title: 'MedDoc',
           headerLeft: () => (
             <Entypo
               name="menu"
