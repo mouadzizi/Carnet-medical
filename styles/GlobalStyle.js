@@ -191,7 +191,6 @@ export const GlobalStyle = StyleSheet.create({
     flex: 1,
   },
   formDateContainer:{
-    flexDirection: 'row',
     justifyContent: 'space-between',
     marginLeft: 15,
     marginRight: 15,

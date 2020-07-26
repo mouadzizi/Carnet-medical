@@ -20,14 +20,13 @@ export default function SignUp({navigation}) {
 
 
   function CreatUser() {
-    
     auth.createUserWithEmailAndPassword(email.trim(), password)
     .catch(error => {
       Alert.alert(error.message)
     }).then(userInfo=>{
       return userInfo.user.updateProfile({displayName:userName});
     }).then(()=>{
-      db.ref('/user/'+auth.currentUser.uid+'/info').set({
+      db.ref('user/'+auth.currentUser.uid+'/info').push({
         username:userName,
         email:auth.currentUser.email,
       })
@@ -112,7 +111,7 @@ export default function SignUp({navigation}) {
 
         <TouchableOpacity
           onPress={()=>{CreatUser()}}>
-          <Text style={GlobalStyle.buttonSignIn}>Creat Account</Text>
+        <Text style={GlobalStyle.buttonSignIn}>Creat Account</Text>
         </TouchableOpacity>
 
         <View style={{flexDirection: 'row', alignItems: 'center', alignSelf: 'center', marginTop: 20}}>

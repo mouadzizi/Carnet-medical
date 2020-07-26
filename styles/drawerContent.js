@@ -48,7 +48,7 @@ export function DrawerContent(props){
 
                 <View style={{flexDirection: "row", marginTop: 10}}>
 
-                <Avatar.Text size={60} label="MZ" />
+                <Avatar.Text size={60} label={userName.charAt(0)} />
                 </View>
 
                 <View style={{marginLeft:15,marginTop: 15,flexDirection: 'column'}}>

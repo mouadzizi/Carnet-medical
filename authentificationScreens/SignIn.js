@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Text, View, TouchableOpacity, Alert} from 'react-native';
+import {Text, View, TouchableOpacity, Alert,ActivityIndicator} from 'react-native';
 import {TextInput} from 'react-native-paper';
 import {GlobalStyle} from '../styles/GlobalStyle'
 
@@ -11,16 +11,22 @@ export default function SignIn({navigation}) {
 
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [loading,setLoading]=useState(false)
 
+  const toggleLoading =()=>{
+    setLoading(!loading)
+  }
   function signIn() {
+    toggleLoading()
     auth.signInWithEmailAndPassword(email.trim(), password)
     .catch(error => {
       Alert.alert(error.message)
+    }).then(()=>{
+      toggleLoading()
     });
   }
 
   return (
-
     <View style={GlobalStyle.SplashContainer}>
      <View style={GlobalStyle.SignInHeader}>
 
@@ -67,9 +73,11 @@ export default function SignIn({navigation}) {
         </TouchableOpacity>
 
         <TouchableOpacity
+        disabled={loading}
         onPress={()=> signIn()}>
         <Text
         style={GlobalStyle.buttonSignIn}>Sign In</Text>
+         <ActivityIndicator style={{position:'absolute',left:10,top:25}} size="large" animating={loading} color='white' />
         </TouchableOpacity>
         
         <View style={{flexDirection: 'row', alignItems: 'center', alignSelf: 'center', marginTop: 20}}>
