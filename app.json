@@ -28,6 +28,7 @@
     },
     "android": {
       "package": "com.yourcompany.yourappname",
+      "enableDangerousExperimentalLeanBuilds" :true,
       "versionCode": 1
     },
     "description": ""
