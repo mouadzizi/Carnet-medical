@@ -26,25 +26,10 @@ export default function Home({navigation}) {
 
     </Card>
 
+      
+
+
     <Card style={{marginTop: 30}}>
-      <Card.Content>
-        <Title>First Aid</Title>
-        <Paragraph>learn the basics for first aid</Paragraph>
-      </Card.Content>
-      
-      <Card.Cover source={require('../assets/slide3.jpg')} />
-      <Card.Actions>
-        <Button
-        onPress={()=>navigation.navigate('TestsData')}
-        color='green'>
-        See More</Button>
-      </Card.Actions>
-
-    </Card>
-      
-
-
-    <Card style={{marginTop: 30, marginBottom: 20}}>
 
       <Card.Content>
         <Title>Events</Title>
@@ -62,6 +47,21 @@ export default function Home({navigation}) {
     </Card>
 
     
+    <Card style={{marginTop: 30, marginBottom: 20}}>
+      <Card.Content>
+        <Title>First Aid</Title>
+        <Paragraph>learn the basics for first aid</Paragraph>
+      </Card.Content>
+      
+      <Card.Cover source={require('../assets/slide3.jpg')} />
+      <Card.Actions>
+        <Button
+        onPress={()=>navigation.navigate('TestsData')}
+        color='green'>
+        See More</Button>
+      </Card.Actions>
+
+    </Card>
     </View>
     
     </ScrollView>

@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, ScrollView, Dimensions, FlatList } from 'react-native';
-import { auth, db } from '../database/firebase'
-import { GlobalStyle } from '../styles/GlobalStyle'
-import { Avatar } from 'react-native-paper'
+import { Text, View, ScrollView, FlatList, Image } from 'react-native';
+import { auth, db } from '../database/firebase';
+import {GlobalStyle} from '../styles/GlobalStyle';
 
-
-const screenWidth = Dimensions.get("window").width;
 
 export default function mesurmentsData() {
   const [data, setData] = useState([])
@@ -30,13 +27,17 @@ export default function mesurmentsData() {
     }
   }, [])
   return (
+    <ScrollView style={{backgroundColor:'#fff'}}>
     <View style={{ flex: 1 }}>
+    
 
       <FlatList
         data={data}
         renderItem={({ item }) => (
+          <View>  
+          <Text style={GlobalStyle.formTitle}> Analyses Data </Text>
           <View style={{ flexDirection: 'row' }} >
-            <Avatar.Image source={{ uri: item.img }} size={90} />
+            <Image source={{ uri: item.img }} style={{width: 200}}/>
             <View>
               <Text>{item.cost}</Text>
               <Text>{item.lab}</Text>
@@ -45,10 +46,12 @@ export default function mesurmentsData() {
             </View>
 
           </View>
+          </View>
         )}
       />
-
+    
     </View>
+    </ScrollView>
 
   );
 }

@@ -45,10 +45,6 @@ export function DrawerContent(props){
         <View style={styles.DrawerContent}>
             <View style={styles.userInfoSection}>
 
-                <View style={{flexDirection: "row", marginTop: 10}}>
-
-                <Avatar.Text size={60} label={userName.charAt(0).toString()} />
-                </View>
 
                 <View style={{marginLeft:15,marginTop: 15,flexDirection: 'column'}}>
                     <Title style={styles.title}> {userName} </Title>

@@ -28,7 +28,7 @@ export default function SignUp({navigation}) {
     }).then(()=>{
       db.ref('user/'+auth.currentUser.uid+'/info').push({
         username:userName,
-        email:auth.currentUser.email,
+        email:email,
       })
     })
   }

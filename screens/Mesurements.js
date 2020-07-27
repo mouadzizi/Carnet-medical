@@ -10,7 +10,7 @@ export default function Mesurements({navigation}) {
 <ScrollView>
   <View style={GlobalStyle.container}>
 
-    <Text>this is  page </Text>
+    <Text>this is sasa page </Text>
     </View>
     </ScrollView>
   );

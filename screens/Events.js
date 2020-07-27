@@ -12,7 +12,7 @@ import {GlobalStyle} from '../styles/GlobalStyle';
 export default function Events ({navigation}) {
 
   return (
-    <ScrollView>
+    <ScrollView style={{backgroundColor: '#fff'}}>
     <View style={GlobalStyle.container}>
 
     <List.Item

@@ -86,11 +86,8 @@ function TabNavigator() {
           } if (route.name === 'Medical act') {
             iconName = focused ? 'ios-list-box' : 'ios-list';
           }
-          if (route.name === 'Medical facilities') {
+          else if (route.name === 'Medical facilities') {
             iconName = focused ? 'ios-map' : 'ios-map';
-          }
-          else if (route.name === 'Location') {
-            iconName = focused ? 'ios-heart' : 'ios-heart';
           }
 
           return <Ionicons name={iconName} size={size} color={color} />;
@@ -103,7 +100,6 @@ function TabNavigator() {
       <Tab.Screen name="Home" component={DrawerNavigator} />
       <Tab.Screen name="Medical act" component={StackTestsNavigation} />
       <Tab.Screen name="Medical facilities" component={StackEventsNavigation} />
-      <Tab.Screen name="Location" component={StackMesurementsNavigation} />
     </Tab.Navigator>
 
   )
