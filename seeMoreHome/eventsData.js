@@ -7,6 +7,7 @@ import { auth, db } from '../database/firebase';
 export default function eventsData() {
   const [dataSurgery, setDataSurgery] = useState([])
   const [dataAppointment, setDataAppointment] = useState([])
+  const [dataVaccins, setDataVaccins] = useState([])
 
   const loadDataSurgery = () => {
     db.ref('user/' + auth.currentUser.uid + '/surgery')
@@ -19,6 +20,20 @@ export default function eventsData() {
           })
         })
         setDataSurgery(items)
+      })
+  }
+
+  const loadDataVaccins = () => {
+    db.ref('user/' + auth.currentUser.uid + '/surgery')
+      .on('value', snap => {
+        var items = []
+        snap.forEach(c => {
+          items.push({
+            ...c.val(),
+            key: c.key
+          })
+        })
+        setDataVaccins(items)
       })
   }
 
@@ -44,6 +59,13 @@ export default function eventsData() {
   }, [])
 
   useEffect(() => {
+    loadDataVaccins()
+    return () => {
+      db.ref('user/' + auth.currentUser.uid + '/vaccins').off()
+    }
+  }, [])
+
+  useEffect(() => {
     loadDataAppointment()
     return () => {
       db.ref('user/' + auth.currentUser.uid + '/appointments').off()
@@ -51,7 +73,7 @@ export default function eventsData() {
   }, [])
 
   return (
-    <ScrollView>
+    <ScrollView style={{backgroundColor: '#fff'}}>
       
     <View style={GlobalStyle.container}>
 
@@ -86,10 +108,32 @@ export default function eventsData() {
           left={() => <List.Icon icon="calendar-month" />}/>
           </List.Section>
           <View style={{ flexDirection: 'column', marginLeft: 20 }} >
-            <View>
+            <View style={{marginBottom: 20}}>
               <Text>Doctor : {item.doctor}</Text>
               <Text>Date : {item.date}</Text>
               <Text>Time : {item.time}</Text>
+            </View>
+
+          </View>
+          </View>
+        )}
+      />
+    
+      <FlatList
+        data={dataVaccins}
+        renderItem={({ item }) => (
+          <View>  
+          <List.Section>
+        <List.Item
+          title="Vaccins"
+          left={() => <List.Icon icon="calendar-month" />}/>
+          </List.Section>
+          <View style={{ flexDirection: 'column', marginLeft: 20 }} >
+            <View style={{marginBottom: 20}}>
+              <Text>Laboratory : {item.Laboratory}</Text>
+              <Text>Vaccin type / name : {item.vaccinType}</Text>
+              <Text>Date : {item.date}</Text>
+              <Text>Cost : {item.cost}</Text>
             </View>
 
           </View>
