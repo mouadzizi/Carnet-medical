@@ -2,10 +2,9 @@ import React, {useState, useEffect} from 'react';
 import {Text, View, StyleSheet, Alert} from 'react-native';
 
 import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import {auth} from '../database/firebase';
-
 import { 
     Avatar,
     Title,
@@ -48,7 +47,7 @@ export function DrawerContent(props){
 
                 <View style={{flexDirection: "row", marginTop: 10}}>
 
-                <Avatar.Text size={60} label={userName.charAt(0)} />
+                <Avatar.Text size={60} label={userName.charAt(0).toString()} />
                 </View>
 
                 <View style={{marginLeft:15,marginTop: 15,flexDirection: 'column'}}>
@@ -59,6 +58,7 @@ export function DrawerContent(props){
 
             {/* this section for pages */}
             <Drawer.Section style={styles.drawerSection}>
+            
             <DrawerItem
             icon={({color, size}) =>(
                 <Icon

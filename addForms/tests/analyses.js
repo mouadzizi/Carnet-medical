@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import { Text, View, ScrollView, Keyboard, TouchableOpacity, ActivityIndicator } from 'react-native';
-
-import { auth, db, storage } from '../../database/firebase'
-import { GlobalStyle } from '../../styles/GlobalStyle';
+import { auth, db, storage } from '../../database/firebase';
 import { TextInput } from 'react-native-paper';
-import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import * as ImagePicker from 'expo-image-picker';
-import { Ionicons } from '@expo/vector-icons';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import { GlobalStyle } from '../../styles/GlobalStyle';
 
 
 export default function analyses({navigation}) {
@@ -43,6 +41,7 @@ export default function analyses({navigation}) {
         }).catch(err => console.log(err.message))
       })
   }
+
   const _pickImage = async () => {
     try {
       let result = await ImagePicker.launchImageLibraryAsync({
@@ -50,12 +49,12 @@ export default function analyses({navigation}) {
         allowsEditing: true,
         quality: 1,
       });
+
       if (!result.cancelled) {
         const imageNameStartIndex = result.uri.search('ImagePicker') + 12;
         const imageNameEndIndex = result.uri.length
         const imgName = result.uri.slice(imageNameStartIndex, imageNameEndIndex)
         uploadImg(result.uri, imgName)
-
       }
 
       console.log(result);
@@ -65,15 +64,14 @@ export default function analyses({navigation}) {
   };
 
   return (
-    <ScrollView>
-      <TouchableWithoutFeedback
-        onPress={Keyboard.dismiss()}>
+    <ScrollView style={{backgroundColor: '#fff'}}>
+
         <View style={GlobalStyle.formContainer}>
           <Text style={GlobalStyle.formTitle}> Analyse </Text>
           <TouchableOpacity
             onPress={_pickImage}
           >
-            <Ionicons name="md-add-circle-outline" size={70} color="black" />
+            <FontAwesome name="image" size={90} color="#C9CACA" style={{marginLeft: 20}} />
           </TouchableOpacity>
           <View style={{ alignContent: 'center', margin: 10 }}>
             <Text style={GlobalStyle.formSubTitle}>information </Text>
@@ -109,19 +107,20 @@ export default function analyses({navigation}) {
               keyboardType='numeric'
               onChangeText={text => setCost(text)}
             />
+
+              
+
             <TouchableOpacity
-              disabled={uploaded}
-              onPress={pushAnalyses}
-            >
-              {uploaded ? <View>
+            onPress={pushAnalyses}>
+            <Text style={GlobalStyle.buttonSignIn}>Save</Text>
+            {uploaded ? <View>
                 <ActivityIndicator size='large' animating={true} />
                 <Text style={{ alignSelf: 'center' }} > uploading Image ... </Text>
               </View> : null}
-              <Ionicons name="md-add-circle-outline" size={70} color="black" />
             </TouchableOpacity>
           </View>
         </View>
-      </TouchableWithoutFeedback>
+        
     </ScrollView>
   );
 }

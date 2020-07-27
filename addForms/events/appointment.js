@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { Text, View, ScrollView, Keyboard, TouchableOpacity } from 'react-native';
+import { Text, View, ScrollView,  TouchableOpacity } from 'react-native';
 import { GlobalStyle } from '../../styles/GlobalStyle';
 import { TextInput } from 'react-native-paper';
-import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import Fontisto from 'react-native-vector-icons/Fontisto'
-import DateTimePickerModal from "react-native-modal-datetime-picker";
-import {auth,db} from '../../database/firebase'
+import {DateTimePickerModal} from "react-native-modal-datetime-picker";
+import {auth,db} from '../../database/firebase';
 
 
 export default function appointment() {
@@ -36,9 +35,7 @@ export default function appointment() {
     })
   } 
   return (
-    <ScrollView>
-      <TouchableWithoutFeedback
-        onPress={Keyboard.dismiss()}>
+    <ScrollView style={{backgroundColor: '#fff'}}>
         <View style={GlobalStyle.formContainer}>
           <DateTimePickerModal 
           isVisible={showDatePicker}
@@ -112,13 +109,11 @@ export default function appointment() {
               onChangeText={(text)=>setPrice(text)}
             />
         <TouchableOpacity
-        onPress={saveEvent}
-          >
+        onPress={saveEvent}>
         <Text style={GlobalStyle.buttonSignIn}>Save</Text>
         </TouchableOpacity>
           </View>
         </View>
-      </TouchableWithoutFeedback>
     </ScrollView>
   );
 }
